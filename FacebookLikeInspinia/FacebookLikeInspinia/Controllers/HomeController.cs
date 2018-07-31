@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace FacebookLikeInspinia.Controllers
 {
@@ -10,19 +6,16 @@ namespace FacebookLikeInspinia.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+            ViewData["SubTitle"] = "Welcome in ASP.NET MVC 5 INSPINIA SeedProject ";
+            ViewData["Message"] = "It is an application skeleton for a typical MVC 5 project. You can use it to quickly bootstrap your webapp projects.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Minor()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewData["SubTitle"] = "Simple example of second view";
+            ViewData["Message"] = "Data are passing to view by ViewData from controller";
 
             return View();
         }
