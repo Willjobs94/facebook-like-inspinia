@@ -213,6 +213,7 @@
     <Compile Include="Models\FacebookLikeInspiniaDbContext.cs" />
     <Compile Include="Models\Like.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Sex.cs" />
     <Compile Include="ViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\ConfigureTwoFactorViewModel.cs" />

@@ -20,7 +20,9 @@ namespace FacebookLikeInspinia.Models
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string About { get; set; }
         public DateTime BirthDate { get; set; }
+        public Sex Sex { get; set; }
         public ICollection<ApplicationUser> Followers { get; set; }
         public ICollection<ApplicationUser> Following { get; set; }
 

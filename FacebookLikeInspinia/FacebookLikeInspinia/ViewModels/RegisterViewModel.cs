@@ -1,9 +1,31 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using FacebookLikeInspinia.Models;
 
 namespace FacebookLikeInspinia.ViewModels
 {
     public class RegisterViewModel
     {
+
+        [Required]
+        [StringLength(50, ErrorMessage = "Name is too long")]
+        [Display(Name = "Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(50, ErrorMessage = "Name is too long")]
+        [Display(Name = "Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Birthday")]
+        public DateTime Birthday { get; set; }
+
+        [Required]
+        [Display(Name = "Birthday")]
+        public Sex Sex { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -19,5 +41,8 @@ namespace FacebookLikeInspinia.ViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+
+
     }
 }
