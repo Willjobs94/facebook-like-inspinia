@@ -13,7 +13,7 @@ namespace FacebookLikeInspinia.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201807312046040_InitialDb"; }
+            get { return "201808031918579_InitialDb"; }
         }
         
         string IMigrationMetadata.Source

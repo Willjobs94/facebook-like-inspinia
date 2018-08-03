@@ -8,23 +8,19 @@ namespace FacebookLikeInspinia.ViewModels
     {
 
         [Required]
-        [StringLength(50, ErrorMessage = "Name is too long")]
-        [Display(Name = "Name")]
+        [StringLength(50, ErrorMessage = "FirstName is too long")]
+        [Display(Name = "FirstName")]
         public string FirstName { get; set; }
 
         [Required]
-        [StringLength(50, ErrorMessage = "Name is too long")]
-        [Display(Name = "Name")]
+        [StringLength(50, ErrorMessage = "LastName is too long")]
+        [Display(Name = "LastName")]
         public string LastName { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Birthday")]
         public DateTime Birthday { get; set; }
-
-        [Required]
-        [Display(Name = "Birthday")]
-        public Sex Sex { get; set; }
 
         [Required]
         [EmailAddress]
@@ -41,8 +37,5 @@ namespace FacebookLikeInspinia.ViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-
-
     }
 }

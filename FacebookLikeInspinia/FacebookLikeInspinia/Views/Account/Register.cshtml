@@ -35,54 +35,43 @@
             @Html.ValidationSummary("", new { @class = "text-danger" })
 
 
-            <div class="form-group">
-                @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+            <div class="row form-group">
                 <div class="col-md-6">
                     @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "First Name" })
                 </div>
-            </div>
-
-            <div class="form-group">
-                @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
                 <div class="col-md-6">
                     @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Last Name" })
                 </div>
             </div>
 
-            <div class="form-group">
-                @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+            <div class="row form-group">
                 <div class="col-md-12">
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            <div class="row form-group">
+                <div class="col-md-12">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
                 </div>
             </div>
-            <div class="form-group">
-                @*@Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })*@
-                <div class="col-md-10">
+            <div class="row form-group">
+                <div class="col-md-12">
                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
                 </div>
             </div>
-
-
-            @*<div class="form-group">
-                @Html.LabelFor(m => m.Birthday, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Birthday, new { @class = "form-control" })
+            <div class="row form-group">
+                <div class="col-md-12">
+                    @Html.TextBoxFor(m => m.Birthday, new { @class = "form-control", placeholder = "Birthday", type = "date", Value = "08/03/2018" })
                 </div>
-            </div>*@
+            </div>
+
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" class="btn btn-default" value="Register" />
+                <div class="offset-3 col-md-5 btn-block">
+                    <input type="submit" class="btn btn-primary" value="Register" />
                 </div>
             </div>
         }
-
 
         <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
     </div>

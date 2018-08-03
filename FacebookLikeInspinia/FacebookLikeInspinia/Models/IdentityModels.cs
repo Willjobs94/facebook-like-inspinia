@@ -22,11 +22,10 @@ namespace FacebookLikeInspinia.Models
         public string LastName { get; set; }
         public string About { get; set; }
         public DateTime BirthDate { get; set; }
-        public Sex Sex { get; set; }
         public ICollection<ApplicationUser> Followers { get; set; }
         public ICollection<ApplicationUser> Following { get; set; }
 
-        public DateTime CreatedAt { get; set; } 
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; }
         public DateTime? DeletedAt { get; set; }

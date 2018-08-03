@@ -10,5 +10,6 @@ namespace FacebookLikeInspinia.Models
         public virtual ICollection<Like> Likes { get; set; }
         public int LikesCount { get; set; }
         public int CommentsCount { get; set; }
+        public string BodyContent { get; set; }
     }
 }
