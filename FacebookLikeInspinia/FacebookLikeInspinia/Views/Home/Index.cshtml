@@ -1,383 +1,243 @@
-﻿<div class="wrapper wrapper-content">
+﻿@using FacebookLikeInspinia.ViewModels.Home
+@using Microsoft.AspNet.Identity
+
+@model HomeIndexViewModel
+<div class="wrapper wrapper-content">
     <div class="row justify-content-md-center animated fadeInRight">
         <div class="col-md-3">
-            <div class="ibox ">
-                <div>
-                    <div class="ibox-content no-padding border-left-right">
-
-                    </div>
-                    <div class="ibox-content profile-content">
-                        <h4><strong>Monica Smith</strong></h4>
-                        <p><i class="fa fa-map-marker"></i> Riviera State 32/106</p>
-                        <h5>
-                            About me
-                        </h5>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
-                        </p>
-                        <div class="row m-t-lg">
-                            <div class="col-md-4">
-                                <span class="bar" style="display: none;">5,3,9,6,5,9,7,3,5,2</span><svg class="peity" height="16" width="32"><rect fill="#1ab394" x="0" y="7.111111111111111" width="2.3" height="8.88888888888889"></rect><rect fill="#d7d7d7" x="3.3" y="10.666666666666668" width="2.3" height="5.333333333333333"></rect><rect fill="#1ab394" x="6.6" y="0" width="2.3" height="16"></rect><rect fill="#d7d7d7" x="9.899999999999999" y="5.333333333333334" width="2.3" height="10.666666666666666"></rect><rect fill="#1ab394" x="13.2" y="7.111111111111111" width="2.3" height="8.88888888888889"></rect><rect fill="#d7d7d7" x="16.5" y="0" width="2.3" height="16"></rect><rect fill="#1ab394" x="19.799999999999997" y="3.555555555555557" width="2.3" height="12.444444444444443"></rect><rect fill="#d7d7d7" x="23.099999999999998" y="10.666666666666668" width="2.3" height="5.333333333333333"></rect><rect fill="#1ab394" x="26.4" y="7.111111111111111" width="2.3" height="8.88888888888889"></rect><rect fill="#d7d7d7" x="29.7" y="12.444444444444445" width="2.3" height="3.5555555555555554"></rect></svg>
-                                <h5><strong>169</strong> Posts</h5>
-                            </div>
-                            <div class="col-md-4">
-                                <span class="line" style="display: none;">5,3,9,6,5,9,7,3,5,2</span><svg class="peity" height="16" width="32"><polygon fill="#1ab394" points="0 15 0 7.166666666666666 3.5555555555555554 10.5 7.111111111111111 0.5 10.666666666666666 5.5 14.222222222222221 7.166666666666666 17.77777777777778 0.5 21.333333333333332 3.833333333333332 24.888888888888886 10.5 28.444444444444443 7.166666666666666 32 12.166666666666666 32 15"></polygon><polyline fill="transparent" points="0 7.166666666666666 3.5555555555555554 10.5 7.111111111111111 0.5 10.666666666666666 5.5 14.222222222222221 7.166666666666666 17.77777777777778 0.5 21.333333333333332 3.833333333333332 24.888888888888886 10.5 28.444444444444443 7.166666666666666 32 12.166666666666666" stroke="#169c81" stroke-width="1" stroke-linecap="square"></polyline></svg>
-                                <h5><strong>28</strong> Following</h5>
-                            </div>
-                            <div class="col-md-4">
-                                <span class="bar" style="display: none;">5,3,2,-1,-3,-2,2,3,5,2</span><svg class="peity" height="16" width="32"><rect fill="#1ab394" x="0" y="0" width="2.3" height="10"></rect><rect fill="#d7d7d7" x="3.3" y="4" width="2.3" height="6"></rect><rect fill="#1ab394" x="6.6" y="6" width="2.3" height="4"></rect><rect fill="#d7d7d7" x="9.899999999999999" y="10" width="2.3" height="2"></rect><rect fill="#1ab394" x="13.2" y="10" width="2.3" height="6"></rect><rect fill="#d7d7d7" x="16.5" y="10" width="2.3" height="4"></rect><rect fill="#1ab394" x="19.799999999999997" y="6" width="2.3" height="4"></rect><rect fill="#d7d7d7" x="23.099999999999998" y="4" width="2.3" height="6"></rect><rect fill="#1ab394" x="26.4" y="0" width="2.3" height="10"></rect><rect fill="#d7d7d7" x="29.7" y="6" width="2.3" height="4"></rect></svg>
-                                <h5><strong>240</strong> Followers</h5>
-                            </div>
-                        </div>
-                        <div class="user-button">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> Buy a coffee</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h3>Followers and friends</h3>
-                    <p class="small">
-                        If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing
-                    </p>
-                    <div class="user-friends">
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a3.jpg"></a>
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a1.jpg"></a>
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a2.jpg"></a>
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a4.jpg"></a>
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a5.jpg"></a>
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a6.jpg"></a>
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a7.jpg"></a>
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a8.jpg"></a>
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a2.jpg"></a>
-                        <a href=""><img alt="image" class="rounded-circle" src="img/a1.jpg"></a>
-                    </div>
-                </div>
-            </div>
+            @Html.Partial("_BasicUserInfo")
+            @Html.Partial("_FollowersAndFriends")
         </div>
-        <div class="col-lg-9" >
-        <div class="social-feed-box">
-            <div class="social-body">
-
-                <div class="media-body">
-                    <textarea class="form-control" placeholder="What are you thinking?"></textarea>
-                </div>
-                <div class="media-body" style="margin-top: 0.5%">
-                    <button class="btn btn-primary pull-right" type="button" id="post-btn"><i class="fa fa-paper-plane"></i> Post</button>
-                </div>
-            </div>
-
-        </div>
-        <div id="post-list-container">
+        <div class="col-lg-9">
             <div class="social-feed-box">
-                <div class="pull-right social-action dropdown">
-                    <button data-toggle="dropdown" class="dropdown-toggle btn-white">
-                        <i class="fa fa-angle-down"></i>
-                    </button>
-                    <ul class="dropdown-menu m-t-xs">
-                        <li><a href="#">Config</a></li>
-                    </ul>
-                </div>
-                <div class="social-avatar">
-                    <a href="" class="pull-left">
-                        <img alt="image" src="~/img/a1.jpg">
-                    </a>
-                    <div class="media-body">
-                        <a href="#">
-                            Andrew Williams
-                        </a>
-                        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-                    </div>
-                </div>
                 <div class="social-body">
-                    <p>
-                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                        default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                        in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                        default model text.
-                    </p>
-
-                    <div class="btn-group">
-                        <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Like this!</button>
-                        <button class="btn btn-white btn-xs comment-btn"><i class="fa fa-comments"></i> Comment</button>
-                    </div>
-                </div>
-                <div class="social-footer">
-                    <div class="comment-list">
-                        <div class="social-comment">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="~/img/a1.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    Andrew Williams
-                                </a>
-                                Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words.
-                                <br/>
-                                <a href="#" class="small"><i class="fa fa-thumbs-up"></i> 26 Like this!</a> -
-                                <small class="text-muted">12.06.2014</small>
-                            </div>
-                        </div>
-
-                        <div class="social-comment">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="~/img/a2.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    Andrew Williams
-                                </a>
-                                Making this the first true generator on the Internet. It uses a dictionary of.
-                                <br/>
-                                <a href="#" class="small"><i class="fa fa-thumbs-up"></i> 11 Like this!</a> -
-                                <small class="text-muted">10.07.2014</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="social-feed-box">
-
-                <div class="pull-right social-action dropdown">
-                    <button data-toggle="dropdown" class="dropdown-toggle btn-white">
-                        <i class="fa fa-angle-down"></i>
-                    </button>
-                    <ul class="dropdown-menu m-t-xs">
-                        <li><a href="#">Config</a></li>
-                    </ul>
-                </div>
-                <div class="social-avatar">
-                    <a href="" class="pull-left">
-                        <img alt="image" src="~/img/a6.jpg">
-                    </a>
                     <div class="media-body">
-                        <a href="#">
-                            Andrew Williams
-                        </a>
-                        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                        <textarea class="form-control" placeholder="What are you thinking?" id="new-post-content-textarea"></textarea>
                     </div>
-                </div>
-                <div class="social-body">
-                    <p>
-                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                        default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                        in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                        default model text.
-                    </p>
-                    <p>
-                        Lorem Ipsum as their
-                        default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                        in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                        default model text.
-                    </p>
-                    <img src="~/img/gallery/11.jpg" class="img-fluid">
-                    <div class="btn-group">
-                        <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Like this!</button>
-                        <button class="btn btn-white btn-xs comment-btn"><i class="fa fa-comments"></i> Comment</button>
+                    <div class="media-body" style="margin-top: 0.5%">
+                        <button class="btn btn-primary pull-right" type="button" id="post-btn" data-user-id="@User.Identity.GetUserId()"><i class="fa fa-paper-plane"></i> Post</button>
                     </div>
-                </div>
-                <div class="social-footer">
-                    <div class="comment-list">
-                        <div class="social-comment">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="~/img/a1.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    Andrew Williams
-                                </a>
-                                Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words.
-                                <br />
-                                <a href="#" class="small"><i class="fa fa-thumbs-up"></i> 26 Like this!</a> -
-                                <small class="text-muted">12.06.2014</small>
-                            </div>
-                        </div>
-
-                        <div class="social-comment">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="~/img/a2.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    Andrew Williams
-                                </a>
-                                Making this the first true generator on the Internet. It uses a dictionary of.
-                                <br />
-                                <a href="#" class="small"><i class="fa fa-thumbs-up"></i> 11 Like this!</a> -
-                                <small class="text-muted">10.07.2014</small>
-                            </div>
-                        </div>
-
-                        <div class="social-comment">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="~/img/a8.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    Andrew Williams
-                                </a>
-                                Making this the first true generator on the Internet. It uses a dictionary of.
-                                <br />
-                                <a href="#" class="small"><i class="fa fa-thumbs-up"></i> 11 Like this!</a> -
-                                <small class="text-muted">10.07.2014</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="social-feed-box">
-                <div class="social-avatar">
-                    <a href="" class="pull-left">
-                        <img alt="image" src="~/img/a4.jpg">
-                    </a>
-                    <div class="media-body">
-                        <a href="#">
-                            Andrew Williams
-                        </a>
-                        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-                    </div>
-                </div>
-                <div class="social-body">
-                    <p>
-                        Packages and web page editors now use Lorem Ipsum as their
-                        default model text. Page editors now use Lorem Ipsum as their
-                        default model text.
-                    </p>
-                    <div class="btn-group">
-                        <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Like this!</button>
-                        <button class="btn btn-white btn-xs comment-btn"><i class="fa fa-comments"></i> Comment</button>
-                    </div>
-                </div>
-                <div class="social-footer">
-                    <div class="comment-list">
-                        <div class="social-comment">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="~/img/a8.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    Andrew Williams
-                                </a>
-                                Making this the first true generator on the Internet. It uses a dictionary of.
-                                <br/>
-                                <a href="#" class="small"><i class="fa fa-thumbs-up"></i> 11 Like this!</a> -
-                                <small class="text-muted">10.07.2014</small>
-                            </div>
-                        </div>
-                    </div>
-                 
                 </div>
             </div>
-        </div>
-
-
+            @Html.Partial("_PostsPartial", Model.Posts)
         </div>
     </div>
 </div>
-
 @section scripts{
     <script>
         var postHtmlTemplate = `
-          <div class="social-feed-box">
-            <div class="social-avatar">
-                <a href="" class="pull-left">
-                    <img alt="image" src="/img/a4.jpg">
-                </a>
-                <div class="media-body">
-                    <a href="#">
-                        Andrew Williams
-                    </a>
-                    <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-                </div>
-            </div>
-            <div class="social-body">
-                <p>
-                    Packages and web page editors now use Lorem Ipsum as their
-                    default model text. Page editors now use Lorem Ipsum as their
-                    default model text.
-                </p>
-                <div class="btn-group">
-                    <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Like this!</button>
-                    <button class="btn btn-white btn-xs comment-btn"><i class="fa fa-comments"></i> Comment</button>
-                </div>
-            </div>
-            <div class="social-footer" style="display:none"></div>
-        </div>`;
+                              <div class="social-feed-box">
+                                <div class="social-avatar">
+                                    <a href="" class="pull-left">
+                                        <img alt="image" src="/img/a4.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <a href="#">
+                                            Andrew Williams
+                                        </a>
+                                        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                                    </div>
+                                </div>
+                                <div class="social-body">
+                                    <p>
+                                        Packages and web page editors now use Lorem Ipsum as their
+                                        default model text. Page editors now use Lorem Ipsum as their
+                                        default model text.
+                                    </p>
+                                    <div class="btn-group">
+                                        <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Like this!</button>
+                                        <button class="btn btn-white btn-xs comment-btn"><i class="fa fa-comments"></i> Comment</button>
+                                    </div>
+                                </div>
+                                <div class="social-footer" style="display:none"><div class="comment-list"></div>
+                            </div>`;
 
         var commentBox = `
-                    <div class="social-comment">
-                        <a href="" class="pull-left">
-                            <img alt="image" src="/img/a3.jpg">
-                        </a>
-                        <div class="media-body">
-                            <textarea class="form-control input-comment-box-texarea" placeholder="Write comment..."></textarea>
-                        </div>
-                    </div>`;
+                                        <div class="social-comment">
+                                            <a href="" class="pull-left">
+                                                <img alt="image" src="/img/a3.jpg">
+                                            </a>
+                                            <div class="media-body">
+                                                <textarea class="form-control input-comment-box-texarea"  placeholder="Write comment..."></textarea>
+                                            </div>
+                                        </div>`;
 
         var commentItemTemplate = `
-                     <div class="social-comment">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="/img/a2.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    William Bello
-                                </a>
-                                Dynamic comment
-                                <br/>
-                                <a href="#" class="small"><i class="fa fa-thumbs-up"></i> 11 Like this!</a> -
-                                <small class="text-muted">10.07.2014</small>
-                            </div>
-                        </div>`;
+                                         <div class="social-comment">
+                                                <a href="" class="pull-left">
+                                                    <img alt="image" src="/img/a2.jpg">
+                                                </a>
+                                                <div class="media-body">
+                                                    <a href="#">
+                                                        William Bello
+                                                    </a>
+                                                    Dynamic comment
+                                                    <br/>
+                                                    <a class="small"><i class="fa fa-thumbs-up"></i> 11 Like this!</a> -
+                                                    <small class="text-muted">10.07.2014</small>
+                                                </div>
+                                            </div>`;
 
-        $(function() {
+        $(function () {
+            console.log("realConnection")
+            var hub = $.connection.notificationHub;
+            function getParsedPostTemplate(postJsonModel) {
+
+                var postTemplate = `
+                                      <div class="social-feed-box" date-post-id="${postJsonModel.PostId}">
+                                        <div class="social-avatar">
+                                            <a href="" class="pull-left">
+                                                <img alt="image" src="/img/a4.jpg">
+                                            </a>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    ${postJsonModel.UserFullName}
+                                                </a>
+                                                <small class="text-muted">${postJsonModel.JsonParsedCreatedAt}</small>
+                                            </div>
+                                        </div>
+                                        <div class="social-body">
+                                            <p>
+                                                ${postJsonModel.Content}
+                                            </p>
+                                            <div class="btn-group">
+                                                <button class="btn btn-white btn-xs like-action" data-post-id="${postJsonModel.PostId}"  ><i class="fa fa-thumbs-up" ></i><span class="like-action-count"></span> Like this!</button>
+                                                <button class="btn btn-white btn-xs comment-btn data-post-id="${postJsonModel.PostId}""><i class="fa fa-comments" ></i> Comment</button>
+                                            </div>
+                                        </div>
+                                        <div class="social-footer" style="display:none"><div class="comment-list"></div>
+                                    </div>`;
+
+                return postTemplate;
+            }
+
+            function getParsedCommentTemplate(commentJsonModel) {
+                var commentItemTemplate = `
+                                <div class="social-comment" data-comment-id="${commentJsonModel.CommentId}">
+                                    <a href="" class="pull-left">
+                                        <img alt="image" src="/img/a2.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <a href="#">
+                                            ${commentJsonModel.CommentedByFullName}
+                                        </a>
+                                        ${commentJsonModel.Content}
+                                        <br/>
+                                        <a href="#" class="small text-muted like-action"><i class="fa fa-thumbs-up" data-comment-id="${commentJsonModel.CommentId}"></i><span class="like-action-count"></span> Like this!</a> -
+                                        <small class="text-muted">${commentJsonModel.JsonParsedCreatedAt}</small>
+                                    </div>
+                                </div>`;
+
+                return commentItemTemplate;
+            }
+
+            function getParsedCommentBoxTemplate(postId) {
+                var commentBox = `
+                            <div class="social-comment">
+                                <a href="" class="pull-left">
+                                    <img alt="image" src="/img/a3.jpg">
+                                </a>
+                                <div class="media-body">
+                                    <textarea data-post-id="${postId}" class="form-control input-comment-box-texarea"  placeholder="Write comment..."></textarea>
+                                </div>
+                            </div>`;
+
+                return commentBox;
+            }
+
+            hub.client.showSavedPost = function (postJsonModel) {
+                console.log(postJsonModel);
+                var template = getParsedPostTemplate(postJsonModel);
+                $(template).hide().prependTo("#post-list-container").fadeIn("slow");
+            }
+
+            hub.client.showSavedComment = function (commentJsonModel) {
+                var parsedTemplate = getParsedCommentTemplate(commentJsonModel);
+                var post = $("#post-list-container").find(`div.social-feed-box [data-post-id='${commentJsonModel.PostId}']`);
+                console.log(post);
+                var commentList = post.closest(".social-footer").find(".comment-list");
+                $(parsedTemplate).hide().appendTo(commentList).fadeIn("slow");
+            }
+
+
             $("#post-btn").on('click',
-                function() {
-                    //$("#post-list-container").prepend(postHtmlTemplate).slideDown(400);
-                    $(postHtmlTemplate).hide().prependTo("#post-list-container").fadeIn("slow");
+                function () {
+                    var selft = $(this);
+                    selft.addClass("disabled");
+                    var userId = $(this).attr('data-user-id');
+                    var content = $("#new-post-content-textarea").val();
+                    postViewModel = { UserId: userId, BodyContent: content };
+                    $.connection.hub.start().done(function () {
+                        console.log("connection stablished")
+                        hub.server.savePost(postViewModel)
+                            .done(function () {
+                                selft.removeClass("disabled");
+                                $("#new-post-content-textarea").val("");
+                        }).fail(function (error) {
+                            console.log('Invocation failed. Error: ' + error);
+                        });
+                    });
+
                 });
 
-            $('body').on('click', 'button.comment-btn', function(e) {
+            $('body').on('click', 'button.comment-btn', function (e) {
                 // do something
-                console.log("comment btn clicked");
                 $(this).hide();
+                var postId = $(this).attr("data-post-id");
+                var parsedCommentBox = getParsedCommentBoxTemplate(postId);
                 var socialFooter = $(e.target).closest(".social-feed-box").find(".social-footer");
                 socialFooter.show();
-                $(commentBox).hide().appendTo(socialFooter).fadeIn("slow").find("textarea").focus();
+                $(parsedCommentBox).hide().appendTo(socialFooter).fadeIn("slow").find("textarea").focus();
             });
 
-
             $('body').on('keypress', 'textarea.input-comment-box-texarea', function (e) {
-                console.log("text area enter");
                 if (e.which === 13) {
-
+                    var self = $(this);
                     //Disable textbox to prevent multiple submit
                     $(this).attr("disabled", "disabled");
-                    //var commentList = .first("#comment-list");
-                    var commentList = $(e.target.parentNode).closest('.social-footer').find(".comment-list");
-                    $(commentItemTemplate).hide().appendTo(commentList).fadeIn("slow");
+                    var postId = $(this).attr("data-post-id");
+                    var content = $(this).val();
+                    var userId = '@User.Identity.GetUserId()';
 
-                    //Enable the textbox again if needed.
-                    $(this).removeAttr("disabled");
+                    var commentViewModel = { Content: content, PostId: postId, OwnerId: userId };
+                    console.log(commentViewModel);
+
+                    $.connection.hub.start().done(function () {
+                        console.log("connection stablished")
+                        hub.server.saveComment(commentViewModel)
+                            .done(function () {
+                                //Enable the textbox again if needed.
+                                self.val("");
+                                self.removeAttr("disabled");
+                            }).fail(function (error) {
+                                console.log('Invocation failed. Error: ' + error);
+                            });
+                    });                 
                 }
             });
 
-            //$('.input-comment-box-texarea').on('keypress',
-            //    function(e) {
-                   
-            //    });
+            $('body').on('click', 'button.like-action', function (e) {
+                console.log("like post");
+                $(this).removeClass("text-muted");
+                $(this).addClass("text-success");
+                var likeActionCountContainer = $(this).closest(".like-action-count");
+                console.log(likeActionCountContainer)
+                var count = likeActionCountContainer.text();
+                var increasedCount = +count + 1;
+                likeActionCountContainer.text(increasedCount);
+            });
+
+            $('body').on('click', 'a.like-action', function (e) {
+                console.log("like comment");
+                $(this).removeClass("text-muted");
+                $(this).addClass("text-success");
+                var likeActionCountContainer = $(this).closest(".like-action-count");
+                console.log(likeActionCountContainer)
+                var count = likeActionCountContainer.text();
+                var increasedCount = +count + 1;
+                likeActionCountContainer.text(increasedCount);
+            });
+
         });
     </script>
-
 }

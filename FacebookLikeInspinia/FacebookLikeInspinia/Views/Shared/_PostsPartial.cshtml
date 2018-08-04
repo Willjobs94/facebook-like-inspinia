@@ -1,0 +1,54 @@
+﻿@using FacebookLikeInspinia.ViewModels.Post
+@model IEnumerable<PostDetailViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <div id="post-list-container">
+        @foreach (var post in Model)
+        {
+            <div class="social-feed-box" data-post-id="@post.PostId">
+                <div class="social-avatar">
+                    <a href="" class="pull-left">
+                        <img alt="image" src="~/img/a1.jpg">
+                    </a>
+                    <div class="media-body">
+                        <a href="#">
+                            @post.UserFullName
+                        </a>
+                        @*<small class="text-muted">Today 4:21 pm - 12.06.2014</small>*@
+                        <small class="text-muted">@post.CreatedAt.ToString("hh:mm tt - dd.MM.yyyy")</small>
+                    </div>
+                </div>
+                <div class="social-body">
+                    <p>
+                        @post.Content
+                    </p>
+                    <div class="btn-group">
+                        @if (post.IsLikedByCurrentUser)
+                        {
+                        <button class="btn btn-white btn-xs text-success like-action" data-post-id="@post.PostId"><i class="fa fa-thumbs-up"></i> <span class="like-action-count">@post.LikesCount</span> Like</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-white btn-xs text-muted like-action" data-post-id="@post.PostId"><i class="fa fa-thumbs-up"></i> <span class="like-action-count">@post.LikesCount</span> Like this!</button>
+                        }
+                        <button class="btn btn-white btn-xs comment-btn" data-post-id="@post.PostId"><i class="fa fa-comments"></i> Comment</button>
+                    </div>
+                </div>
+
+                @if (post.Comments.Any())
+                {
+                    <div class="social-footer">
+                        @Html.Partial("_CommentsPartial", post.Comments)
+                    </div>
+                }
+                else
+                {
+                    <div class="social-footer" style="display:none">
+                        <div class="comment-list"></div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}

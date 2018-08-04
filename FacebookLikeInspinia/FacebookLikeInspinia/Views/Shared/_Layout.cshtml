@@ -8,6 +8,9 @@
     <title>INSPINIA | @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/font-awesome/css")
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
 </head>
 <body class="fixed-sidebar fixed-nav md-skin pace-done mini-navbar">
     <!-- Wrapper-->
@@ -19,19 +22,53 @@
             <!-- Top Navbar -->
             @Html.Partial("_TopNavbar")
             <!-- Main view  -->
-                @RenderBody()
+            @RenderBody()
             <!-- Footer -->
             @Html.Partial("_Footer")
         </div>
         <!-- End page wrapper-->
     </div>
     <!-- End wrapper-->
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/plugins/metsiMenu")
     @Scripts.Render("~/plugins/pace")
     @Scripts.Render("~/plugins/slimScroll")
     @Scripts.Render("~/bundles/inspinia")
     @RenderSection("scripts", required: false)
+
+    @*<script type="text/javascript">
+        $(document).ready(function () {
+
+            function setTotalNotification(totalNotif) {
+                console.log(totalNotif);
+                $("#messages").html("<p> Total Notif:" + totalNotif + "</p>");
+            }
+
+            var hub = $.connection.notificationHub;
+
+            //Client Call
+            hub.client.broadcaastNotif = function (totalNotif) {
+                setTotalNotification(totalNotif)
+            };
+
+            hub.client.showNotification = function () {
+                console.log("showing notification")
+            }
+
+            //$.connection.hub.start().done(function () { });
+
+            //$.connection.hub.start()
+            //    .done(function () {
+            //        console.log("Hub Connected!");
+
+            //        //Server Call
+            //        hub.server.getNotification();
+
+            //    })
+            //    .fail(function () {
+            //        console.log("Could not Connect!");
+            //    });
+        });
+    </script>*@
 </body>
 </html>

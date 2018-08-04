@@ -1,8 +1,8 @@
-﻿namespace FacebookLikeInspinia.ViewModels
+﻿namespace FacebookLikeInspinia.ViewModels.Post
 {
     public class CreatePostViewModel
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public string BodyContent { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using FacebookLikeInspinia.Models;
 using FacebookLikeInspinia.ViewModels;
+using FacebookLikeInspinia.ViewModels.Post;
 
 namespace FacebookLikeInspinia.Controllers
 {
