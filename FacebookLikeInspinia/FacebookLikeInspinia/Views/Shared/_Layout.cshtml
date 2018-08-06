@@ -8,7 +8,14 @@
     <title>INSPINIA | @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/font-awesome/css")
+
+    <style>
+        .no-hover {
+            pointer-events: none; /**<-----------*/
+        }
+    </style>
     @Scripts.Render("~/bundles/jquery")
+
     <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script>
     <script src="~/signalr/hubs"></script>
 </head>

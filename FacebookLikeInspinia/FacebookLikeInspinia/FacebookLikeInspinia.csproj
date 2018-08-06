@@ -207,6 +207,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,9 +216,9 @@
     <Compile Include="Helpers\HmtlHelperExtensions.cs" />
     <Compile Include="Hubs\NotificationHub.cs" />
     <Compile Include="Hubs\UserHubModels.cs" />
-    <Compile Include="Migrations\201808050354166_InitialDb.cs" />
-    <Compile Include="Migrations\201808050354166_InitialDb.Designer.cs">
-      <DependentUpon>201808050354166_InitialDb.cs</DependentUpon>
+    <Compile Include="Migrations\201808060308423_InitialDb.cs" />
+    <Compile Include="Migrations\201808060308423_InitialDb.Designer.cs">
+      <DependentUpon>201808060308423_InitialDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -232,6 +233,9 @@
     <Compile Include="ViewModels\Comment\CreateCommentViewModel.cs" />
     <Compile Include="ViewModels\ConfigureTwoFactorViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeIndexViewModel.cs" />
+    <Compile Include="ViewModels\Like\LikeCommentViewModel.cs" />
+    <Compile Include="ViewModels\Like\LikePostViewModel.cs" />
+    <Compile Include="ViewModels\Like\SavedLikeViewModel.cs" />
     <Compile Include="ViewModels\Post\CreatePostViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
@@ -1303,6 +1307,7 @@
     <Content Include="Views\Home\_FollowersAndFriends.cshtml" />
     <Content Include="Views\Shared\_PostsPartial.cshtml" />
     <Content Include="Views\Shared\_CommentsPartial.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1318,8 +1323,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808050354166_InitialDb.resx">
-      <DependentUpon>201808050354166_InitialDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808060308423_InitialDb.resx">
+      <DependentUpon>201808060308423_InitialDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

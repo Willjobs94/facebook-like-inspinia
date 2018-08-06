@@ -13,3 +13,10 @@ namespace FacebookLikeInspinia
         }
     }
 }
+
+// sqllocaldb.exe delete
+// sqllocaldb.exe stop
+
+
+
+

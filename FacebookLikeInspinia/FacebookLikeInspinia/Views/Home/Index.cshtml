@@ -5,12 +5,14 @@
 <div class="wrapper wrapper-content">
     <div class="row justify-content-md-center animated fadeInRight">
         <div class="col-md-3">
-            @Html.Partial("_BasicUserInfo")
+            @*@Html.Partial("_BasicUserInfo")*@
             @Html.Partial("_FollowersAndFriends")
         </div>
         <div class="col-lg-9">
             <div class="social-feed-box">
+      
                 <div class="social-body">
+                    <h3> New Post</h3>
                     <div class="media-body">
                         <textarea class="form-control" placeholder="What are you thinking?" id="new-post-content-textarea"></textarea>
                     </div>
@@ -25,66 +27,20 @@
 </div>
 @section scripts{
     <script>
-        var postHtmlTemplate = `
-                              <div class="social-feed-box">
-                                <div class="social-avatar">
-                                    <a href="" class="pull-left">
-                                        <img alt="image" src="/img/a4.jpg">
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            Andrew Williams
-                                        </a>
-                                        <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-                                    </div>
-                                </div>
-                                <div class="social-body">
-                                    <p>
-                                        Packages and web page editors now use Lorem Ipsum as their
-                                        default model text. Page editors now use Lorem Ipsum as their
-                                        default model text.
-                                    </p>
-                                    <div class="btn-group">
-                                        <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Like this!</button>
-                                        <button class="btn btn-white btn-xs comment-btn"><i class="fa fa-comments"></i> Comment</button>
-                                    </div>
-                                </div>
-                                <div class="social-footer" style="display:none"><div class="comment-list"></div>
-                            </div>`;
-
-        var commentBox = `
-                                        <div class="social-comment">
-                                            <a href="" class="pull-left">
-                                                <img alt="image" src="/img/a3.jpg">
-                                            </a>
-                                            <div class="media-body">
-                                                <textarea class="form-control input-comment-box-texarea"  placeholder="Write comment..."></textarea>
-                                            </div>
-                                        </div>`;
-
-        var commentItemTemplate = `
-                                         <div class="social-comment">
-                                                <a href="" class="pull-left">
-                                                    <img alt="image" src="/img/a2.jpg">
-                                                </a>
-                                                <div class="media-body">
-                                                    <a href="#">
-                                                        William Bello
-                                                    </a>
-                                                    Dynamic comment
-                                                    <br/>
-                                                    <a class="small"><i class="fa fa-thumbs-up"></i> 11 Like this!</a> -
-                                                    <small class="text-muted">10.07.2014</small>
-                                                </div>
-                                            </div>`;
 
         $(function () {
             console.log("realConnection")
             var hub = $.connection.notificationHub;
+
+            hub.client.showConnectedUsers = function (usersCount) {
+                console.log("Connected users: " + usersCount);
+            }
+
+           
             function getParsedPostTemplate(postJsonModel) {
 
                 var postTemplate = `
-                                      <div class="social-feed-box" date-post-id="${postJsonModel.PostId}">
+                                      <div class="social-feed-box" data-post-id="${postJsonModel.PostId}">
                                         <div class="social-avatar">
                                             <a href="" class="pull-left">
                                                 <img alt="image" src="/img/a4.jpg">
@@ -101,8 +57,8 @@
                                                 ${postJsonModel.Content}
                                             </p>
                                             <div class="btn-group">
-                                                <button class="btn btn-white btn-xs like-action" data-post-id="${postJsonModel.PostId}"  ><i class="fa fa-thumbs-up" ></i><span class="like-action-count"></span> Like this!</button>
-                                                <button class="btn btn-white btn-xs comment-btn data-post-id="${postJsonModel.PostId}""><i class="fa fa-comments" ></i> Comment</button>
+                                                <button class="btn btn-white btn-xs like-action" data-like-button-post-id="${postJsonModel.PostId}"  ><i class="fa fa-thumbs-up" ></i><span class="like-action-count"></span> Likes</button>
+                                                <button class="btn btn-white btn-xs comment-btn" data-comment-button-post-id="${postJsonModel.PostId}"><i class="fa fa-comments" ></i> Comment</button>
                                             </div>
                                         </div>
                                         <div class="social-footer" style="display:none"><div class="comment-list"></div>
@@ -123,7 +79,7 @@
                                         </a>
                                         ${commentJsonModel.Content}
                                         <br/>
-                                        <a href="#" class="small text-muted like-action"><i class="fa fa-thumbs-up" data-comment-id="${commentJsonModel.CommentId}"></i><span class="like-action-count"></span> Like this!</a> -
+                                        <a class="small text-muted like-action"><i class="fa fa-thumbs-up" data-like-action-comment-id="${commentJsonModel.CommentId}"></i><span class="like-action-count"></span> Like this!</a> -
                                         <small class="text-muted">${commentJsonModel.JsonParsedCreatedAt}</small>
                                     </div>
                                 </div>`;
@@ -138,7 +94,7 @@
                                     <img alt="image" src="/img/a3.jpg">
                                 </a>
                                 <div class="media-body">
-                                    <textarea data-post-id="${postId}" class="form-control input-comment-box-texarea"  placeholder="Write comment..."></textarea>
+                                    <textarea data-textarea-post-id="${postId}" class="form-control input-comment-box-texarea"  placeholder="Write comment..."></textarea>
                                 </div>
                             </div>`;
 
@@ -153,12 +109,41 @@
 
             hub.client.showSavedComment = function (commentJsonModel) {
                 var parsedTemplate = getParsedCommentTemplate(commentJsonModel);
-                var post = $("#post-list-container").find(`div.social-feed-box [data-post-id='${commentJsonModel.PostId}']`);
-                console.log(post);
-                var commentList = post.closest(".social-footer").find(".comment-list");
+                var post = $("#post-list-container").find(`[data-post-id='${commentJsonModel.PostId}']`);
+                post.find(".social-footer").show();
+                var commentList = post.find(".comment-list");
                 $(parsedTemplate).hide().appendTo(commentList).fadeIn("slow");
             }
 
+            hub.client.increaseLikeCommentCount = function (likeCommentJsonModel) {
+                console.log(likeCommentJsonModel, "response");
+                var post = $("#post-list-container").find(`[data-post-id='${likeCommentJsonModel.PostId}']`);
+                var commentList = post.find(".comment-list");
+                var comment = commentList.find(`[data-comment-id='${likeCommentJsonModel.CommentId}']`)
+                var likeElement = comment.find(".like-action");
+                
+                var currentUserId = "@User.Identity.GetUserId()";
+                if (currentUserId === likeCommentJsonModel.LikedByUserId) {
+                    $(likeElement).removeClass("text-muted");
+                    $(likeElement).addClass("text-success").addClass("no-hover");
+                }
+                var likeActionCountContainer = $(likeElement).find("span.like-action-count");
+                likeActionCountContainer.text(` ${likeCommentJsonModel.LikeCount} `);
+            }
+
+            hub.client.increaseLikePostCount = function (likePostJsonModel) {
+                console.log(likePostJsonModel, "response");
+                var post = $("#post-list-container").find(`[data-post-id='${likePostJsonModel.PostId}']`);
+                var likeElement = post.find(".like-action");
+                
+                var currentUserId = "@User.Identity.GetUserId()";
+                if (currentUserId === likePostJsonModel.LikedByUserId) {
+                    $(likeElement).removeClass("text-muted");
+                    $(likeElement).addClass("text-success").addClass("no-hover");
+                }
+                var likeActionCountContainer = $(likeElement).find("span.like-action-count");
+                likeActionCountContainer.text(` ${likePostJsonModel.LikeCount} `);
+            }
 
             $("#post-btn").on('click',
                 function () {
@@ -168,7 +153,6 @@
                     var content = $("#new-post-content-textarea").val();
                     postViewModel = { UserId: userId, BodyContent: content };
                     $.connection.hub.start().done(function () {
-                        console.log("connection stablished")
                         hub.server.savePost(postViewModel)
                             .done(function () {
                                 selft.removeClass("disabled");
@@ -183,7 +167,7 @@
             $('body').on('click', 'button.comment-btn', function (e) {
                 // do something
                 $(this).hide();
-                var postId = $(this).attr("data-post-id");
+                var postId = $(this).attr("data-comment-button-post-id");
                 var parsedCommentBox = getParsedCommentBoxTemplate(postId);
                 var socialFooter = $(e.target).closest(".social-feed-box").find(".social-footer");
                 socialFooter.show();
@@ -195,7 +179,7 @@
                     var self = $(this);
                     //Disable textbox to prevent multiple submit
                     $(this).attr("disabled", "disabled");
-                    var postId = $(this).attr("data-post-id");
+                    var postId = $(this).attr("data-textarea-post-id");
                     var content = $(this).val();
                     var userId = '@User.Identity.GetUserId()';
 
@@ -217,25 +201,33 @@
             });
 
             $('body').on('click', 'button.like-action', function (e) {
-                console.log("like post");
-                $(this).removeClass("text-muted");
-                $(this).addClass("text-success");
-                var likeActionCountContainer = $(this).closest(".like-action-count");
-                console.log(likeActionCountContainer)
-                var count = likeActionCountContainer.text();
-                var increasedCount = +count + 1;
-                likeActionCountContainer.text(increasedCount);
+                var userId = '@User.Identity.GetUserId()';
+                var postId = $(this).closest(".social-feed-box").attr("data-post-id");
+                var likePostViewModel = { UserId: userId, PostId: postId };
+                $.connection.hub.start().done(function () {
+                    hub.server.likePost(likePostViewModel);
+                });
+
             });
 
             $('body').on('click', 'a.like-action', function (e) {
-                console.log("like comment");
-                $(this).removeClass("text-muted");
-                $(this).addClass("text-success");
-                var likeActionCountContainer = $(this).closest(".like-action-count");
-                console.log(likeActionCountContainer)
-                var count = likeActionCountContainer.text();
-                var increasedCount = +count + 1;
-                likeActionCountContainer.text(increasedCount);
+                var userId = '@User.Identity.GetUserId()';
+                var commentId = $(this).closest(".social-comment").attr("data-comment-id");
+                var likeCommentViewModel = { UserId: userId, CommentId: commentId };
+                $.connection.hub.start().done(function () {
+                    hub.server.likeComment(likeCommentViewModel);
+                });
+            });
+
+             $.connection.hub.start().done(function () {
+                console.log("Init Connection")
+                hub.server.getConnectedUsers()
+                    .done(function () {
+                        console.log("Init Connection success")
+
+                    }).fail(function (error) {
+                        console.log('Invocation failed Init connection. Error: ' + error);
+                    });
             });
 
         });

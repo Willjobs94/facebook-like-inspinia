@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using FacebookLikeInspinia.Models;
 using FacebookLikeInspinia.ViewModels.Comment;
+using FacebookLikeInspinia.ViewModels.Like;
 using FacebookLikeInspinia.ViewModels.Post;
 using Microsoft.AspNet.SignalR;
 
@@ -25,6 +26,10 @@ namespace FacebookLikeInspinia.Hubs
             Clients.All.showNotification();
         }
 
+        public void GetConnectedUsers()
+        {
+            Clients.All.showConnectedUsers(Users.Count);
+        }
 
 
 
@@ -76,10 +81,68 @@ namespace FacebookLikeInspinia.Hubs
                 Content = comment.Body,
                 CreatedAt = comment.CreatedAt,
                 PostId = comment.PostId,
-                IsLikedByCurrentUser = false
+                IsLikedByCurrentUser = false, 
+                CommentId = comment.Id
             };
 
             Clients.All.showSavedComment(commentDetail);
+        }
+
+        public void LikeComment(LikeCommentViewModel likeCommentViewModel)
+        {
+            if (likeCommentViewModel == null || string.IsNullOrEmpty(likeCommentViewModel.UserId) || likeCommentViewModel.CommentId <= 0) return;
+            var user = _dbContext.Users.FirstOrDefault(x => x.Id == likeCommentViewModel.UserId);
+            if (user == null) return;
+
+            var comment = _dbContext.Comments.FirstOrDefault(x => x.Id == likeCommentViewModel.CommentId);
+            if (comment == null) return;
+
+            var like = new Like
+            {
+                UserId = likeCommentViewModel.UserId,
+                CommentId = likeCommentViewModel.CommentId
+            };
+
+            _dbContext.Likes.Add(like);
+            _dbContext.SaveChanges();
+
+            var savedLikeModel = new SavedLikeViewModel
+            {
+                PostId = comment.PostId,
+                CommentId = comment.Id,
+                LikeCount = comment.Likes.Count,
+                LikedByUserId = user.Id
+            };
+
+            Clients.All.increaseLikeCommentCount(savedLikeModel);
+        }
+
+        public void LikePost(LikePostViewModel likePostViewModel)
+        {
+            if (likePostViewModel == null || string.IsNullOrEmpty(likePostViewModel.UserId) || likePostViewModel.PostId <= 0) return;
+            var user = _dbContext.Users.FirstOrDefault(x => x.Id == likePostViewModel.UserId);
+            if (user == null) return;
+
+            var post = _dbContext.Posts.FirstOrDefault(x => x.Id == likePostViewModel.PostId);
+            if (post == null) return;
+
+            var like = new Like
+            {
+                UserId = likePostViewModel.UserId,
+                PostId = likePostViewModel.PostId
+            };
+
+            _dbContext.Likes.Add(like);
+            _dbContext.SaveChanges();
+
+            var savedLikeModel = new SavedLikeViewModel
+            {
+                PostId = post.Id,
+                LikeCount = post.Likes.Count,
+                LikedByUserId = user.Id
+            };
+
+            Clients.All.increaseLikePostCount(savedLikeModel);
         }
 
         public override Task OnConnected()
@@ -101,7 +164,7 @@ namespace FacebookLikeInspinia.Hubs
                     Clients.Others.userConnected(userName);
                 }
             }
-
+            Clients.All.showConnectedUsers(Users.Count);
             return base.OnConnected();
         }
 
@@ -124,7 +187,7 @@ namespace FacebookLikeInspinia.Hubs
                     }
                 }
             }
-
+            Clients.All.showConnectedUsers(Users.Count);
             return base.OnDisconnected(stopCalled);
         }
     }

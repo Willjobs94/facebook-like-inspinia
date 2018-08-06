@@ -1,10 +1,11 @@
 ﻿@using FacebookLikeInspinia.ViewModels.Post
 @model IEnumerable<PostDetailViewModel>
 
-@if (Model != null && Model.Any())
-{
-    <div id="post-list-container">
-        @foreach (var post in Model)
+<div id="post-list-container">
+    @if (Model != null && Model.Any())
+    {
+
+        foreach (var post in Model)
         {
             <div class="social-feed-box" data-post-id="@post.PostId">
                 <div class="social-avatar">
@@ -15,7 +16,6 @@
                         <a href="#">
                             @post.UserFullName
                         </a>
-                        @*<small class="text-muted">Today 4:21 pm - 12.06.2014</small>*@
                         <small class="text-muted">@post.CreatedAt.ToString("hh:mm tt - dd.MM.yyyy")</small>
                     </div>
                 </div>
@@ -26,13 +26,13 @@
                     <div class="btn-group">
                         @if (post.IsLikedByCurrentUser)
                         {
-                        <button class="btn btn-white btn-xs text-success like-action" data-post-id="@post.PostId"><i class="fa fa-thumbs-up"></i> <span class="like-action-count">@post.LikesCount</span> Like</button>
+                            <button class="btn btn-white btn-xs text-success like-action" data-like-button-post-id="@post.PostId"><i class="fa fa-thumbs-up"></i> <span class="like-action-count">@post.LikesCount</span> Likes</button>
                         }
                         else
                         {
-                            <button class="btn btn-white btn-xs text-muted like-action" data-post-id="@post.PostId"><i class="fa fa-thumbs-up"></i> <span class="like-action-count">@post.LikesCount</span> Like this!</button>
+                            <button class="btn btn-white btn-xs text-muted like-action" data-like-button-post-id="@post.PostId"><i class="fa fa-thumbs-up"></i> <span class="like-action-count">@post.LikesCount</span> Likes</button>
                         }
-                        <button class="btn btn-white btn-xs comment-btn" data-post-id="@post.PostId"><i class="fa fa-comments"></i> Comment</button>
+                        <button class="btn btn-white btn-xs comment-btn" data-comment-button-post-id="@post.PostId"><i class="fa fa-comments"></i> Comment</button>
                     </div>
                 </div>
 
@@ -50,5 +50,5 @@
                 }
             </div>
         }
-    </div>
-}
+    }
+</div>

@@ -98,20 +98,20 @@ namespace FacebookLikeInspinia.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         UserId = c.String(maxLength: 128),
+                        PostId = c.Int(),
+                        CommentId = c.Int(),
                         CreatedAt = c.DateTime(nullable: false),
                         IsActive = c.Boolean(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
                         DeletedAt = c.DateTime(),
-                        Comment_Id = c.Int(),
-                        Post_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
-                .ForeignKey("dbo.Comments", t => t.Comment_Id)
-                .ForeignKey("dbo.Posts", t => t.Post_Id)
+                .ForeignKey("dbo.Comments", t => t.CommentId)
+                .ForeignKey("dbo.Posts", t => t.PostId)
                 .Index(t => t.UserId)
-                .Index(t => t.Comment_Id)
-                .Index(t => t.Post_Id);
+                .Index(t => t.PostId)
+                .Index(t => t.CommentId);
             
             CreateTable(
                 "dbo.Posts",
@@ -160,9 +160,9 @@ namespace FacebookLikeInspinia.Migrations
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Posts", "UserOwnerId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Likes", "Post_Id", "dbo.Posts");
+            DropForeignKey("dbo.Likes", "PostId", "dbo.Posts");
             DropForeignKey("dbo.Comments", "PostId", "dbo.Posts");
-            DropForeignKey("dbo.Likes", "Comment_Id", "dbo.Comments");
+            DropForeignKey("dbo.Likes", "CommentId", "dbo.Comments");
             DropForeignKey("dbo.Likes", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Comments", "CommentOwnerUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -174,8 +174,8 @@ namespace FacebookLikeInspinia.Migrations
             DropIndex("dbo.Followers", new[] { "ApplicationUserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Posts", new[] { "UserOwnerId" });
-            DropIndex("dbo.Likes", new[] { "Post_Id" });
-            DropIndex("dbo.Likes", new[] { "Comment_Id" });
+            DropIndex("dbo.Likes", new[] { "CommentId" });
+            DropIndex("dbo.Likes", new[] { "PostId" });
             DropIndex("dbo.Likes", new[] { "UserId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });

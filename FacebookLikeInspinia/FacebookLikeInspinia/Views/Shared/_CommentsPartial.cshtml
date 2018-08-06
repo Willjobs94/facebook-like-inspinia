@@ -6,7 +6,7 @@
     <div class="comment-list">
         @foreach (var comment in Model)
         {
-            <div class="social-comment"  data-comment-id="@comment.CommentId">
+            <div class="social-comment"  data-comment-id="@comment.CommentId" data-comment-item-post-id="@comment.PostId">
                 <a href="" class="pull-left">
                     <img alt="image" src="~/img/a1.jpg">
                 </a>
@@ -18,11 +18,11 @@
                     <br />
                     @if (comment.IsLikedByCurrentUser)
                     {
-                        <a  class="small text-success"><i class="fa fa-thumbs-up"></i> @comment.LikesCount and you Liked this!</a>
+                        <a  class="small text-success no-hover"><i class="fa fa-thumbs-up"></i> @comment.LikesCount Likes</a>
                     }
                     else
                     {
-                        <a class="small text-muted like-action"><i class="fa fa-thumbs-up"></i> <span class="like-action-count">@comment.LikesCount</span> Like this!</a>
+                        <a class="small text-muted like-action"><i class="fa fa-thumbs-up"></i> <span class="like-action-count">@comment.LikesCount</span> Likes</a>
                     }
                     - <small class="text-muted">@comment.CreatedAt.ToString("dd.MM.yyyy")</small>
                 </div>
