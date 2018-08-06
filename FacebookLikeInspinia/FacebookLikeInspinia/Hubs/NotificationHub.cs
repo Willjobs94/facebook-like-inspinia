@@ -2,11 +2,13 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using FacebookLikeInspinia.Models;
 using FacebookLikeInspinia.ViewModels.Comment;
+using FacebookLikeInspinia.ViewModels.Follow;
 using FacebookLikeInspinia.ViewModels.Like;
 using FacebookLikeInspinia.ViewModels.Post;
 using Microsoft.AspNet.SignalR;
@@ -20,7 +22,6 @@ namespace FacebookLikeInspinia.Hubs
         private static readonly ConcurrentDictionary<string, UserHubModels> Users =
             new ConcurrentDictionary<string, UserHubModels>(StringComparer.InvariantCultureIgnoreCase);
 
-
         public void GetNotification()
         {
             Clients.All.showNotification();
@@ -30,8 +31,6 @@ namespace FacebookLikeInspinia.Hubs
         {
             Clients.All.showConnectedUsers(Users.Count);
         }
-
-
 
         public void SavePost(CreatePostViewModel postModel)
         {
@@ -143,6 +142,30 @@ namespace FacebookLikeInspinia.Hubs
             };
 
             Clients.All.increaseLikePostCount(savedLikeModel);
+        }
+
+        public void FollowUser(FollowPersonViewModel followPersonViewModel)
+        {
+            if (followPersonViewModel == null || string.IsNullOrEmpty(followPersonViewModel.CurrentUserId) || string.IsNullOrEmpty(followPersonViewModel.FollowUserId)) return;
+            var wantToFollowUser = _dbContext.Users.Include(nameof(ApplicationUser.Following)).FirstOrDefault(x => x.Id == followPersonViewModel.CurrentUserId);
+            if (wantToFollowUser == null) return;
+
+            var willBeFollowedUser = _dbContext.Users.Include(nameof(ApplicationUser.Followers)).FirstOrDefault(x => x.Id == followPersonViewModel.FollowUserId);
+            if (willBeFollowedUser == null) return;
+
+            willBeFollowedUser.Followers.Add(wantToFollowUser);
+            wantToFollowUser.Following.Add(willBeFollowedUser);
+            _dbContext.Entry(willBeFollowedUser).State = EntityState.Modified;
+            _dbContext.Entry(wantToFollowUser).State = EntityState.Modified;
+            
+            //var followerEntity = new Follower()
+            //{
+            //    ApplicationUserId = followPersonViewModel.CurrentUserId,
+            //    FollowerUserId = followPersonViewModel.FollowUserId
+            //};
+
+            //willBeFollowedUser.Followers.Add(wantToFollowUser);
+            _dbContext.SaveChanges();
         }
 
         public override Task OnConnected()

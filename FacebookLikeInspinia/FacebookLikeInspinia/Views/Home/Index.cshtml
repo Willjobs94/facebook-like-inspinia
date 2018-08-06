@@ -36,7 +36,6 @@
                 console.log("Connected users: " + usersCount);
             }
 
-           
             function getParsedPostTemplate(postJsonModel) {
 
                 var postTemplate = `
@@ -151,7 +150,7 @@
                     selft.addClass("disabled");
                     var userId = $(this).attr('data-user-id');
                     var content = $("#new-post-content-textarea").val();
-                    postViewModel = { UserId: userId, BodyContent: content };
+                    var postViewModel = { UserId: userId, BodyContent: content };
                     $.connection.hub.start().done(function () {
                         hub.server.savePost(postViewModel)
                             .done(function () {
@@ -220,7 +219,7 @@
             });
 
              $.connection.hub.start().done(function () {
-                console.log("Init Connection")
+                 console.log("Init Connection");
                 hub.server.getConnectedUsers()
                     .done(function () {
                         console.log("Init Connection success")

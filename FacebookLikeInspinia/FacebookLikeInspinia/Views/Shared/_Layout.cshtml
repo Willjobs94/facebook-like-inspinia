@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>INSPINIA | @ViewBag.Title</title>
+    <title>Fakebook</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/font-awesome/css")
 
@@ -43,39 +43,5 @@
     @Scripts.Render("~/bundles/inspinia")
     @RenderSection("scripts", required: false)
 
-    @*<script type="text/javascript">
-        $(document).ready(function () {
-
-            function setTotalNotification(totalNotif) {
-                console.log(totalNotif);
-                $("#messages").html("<p> Total Notif:" + totalNotif + "</p>");
-            }
-
-            var hub = $.connection.notificationHub;
-
-            //Client Call
-            hub.client.broadcaastNotif = function (totalNotif) {
-                setTotalNotification(totalNotif)
-            };
-
-            hub.client.showNotification = function () {
-                console.log("showing notification")
-            }
-
-            //$.connection.hub.start().done(function () { });
-
-            //$.connection.hub.start()
-            //    .done(function () {
-            //        console.log("Hub Connected!");
-
-            //        //Server Call
-            //        hub.server.getNotification();
-
-            //    })
-            //    .fail(function () {
-            //        console.log("Could not Connect!");
-            //    });
-        });
-    </script>*@
 </body>
 </html>

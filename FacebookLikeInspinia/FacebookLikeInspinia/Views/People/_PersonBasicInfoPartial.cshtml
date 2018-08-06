@@ -1,28 +1,40 @@
-﻿
+﻿@using FacebookLikeInspinia.ViewModels.People
+@model PersonBasicInfoViewModel
 <div class="col-lg-3">
     <div class="contact-box center-version">
+        <a href="/Profile/Detail?userId=@Model.UserId">
 
-        <a href="profile.html">
-
-            <img alt="image" class="rounded-circle" src="img/a4.jpg">
+            <img alt="image" class="rounded-circle" src="/img/a4.jpg">
 
 
-            <h3 class="m-b-xs"><strong>Michael Zimber</strong></h3>
-
-            <div class="font-bold">Sales manager</div>
+            <h3 class="m-b-xs"><strong>@Model.FullName</strong></h3>
+          
+            @*<div class="font-bold">Sales manager</div>
             <address class="m-t-md">
                 <strong>Twitter, Inc.</strong><br>
                 795 Folsom Ave, Suite 600<br>
                 San Francisco, CA 94107<br>
                 <abbr title="Phone">P:</abbr> (123) 456-7890
-            </address>
+            </address>*@
 
         </a>
         <div class="contact-box-footer">
-            <div class="m-t-xs btn-group">
-                <a href="" class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>
-                <a href="" class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
-                <a href="" class="btn btn-xs btn-white"><i class="fa fa-user-plus"></i> Follow</a>
+            <div class="m-t-xs ">
+                @if (Model.IsFollowedByCurrentUser)
+                {
+                    <a class="btn btn-xs btn-white text-info no-hover" data-follow-action-user-id="@Model.UserId">
+
+                        <i class="fa fa-check "></i> Following
+                    </a>
+                }
+                else
+                {
+                    <a class="btn btn-xs btn-white follow-action" data-follow-action-user-id="@Model.UserId">
+
+                        <i class="fa fa-user-plus"></i> Follow
+                    </a>
+                }
+
             </div>
         </div>
 

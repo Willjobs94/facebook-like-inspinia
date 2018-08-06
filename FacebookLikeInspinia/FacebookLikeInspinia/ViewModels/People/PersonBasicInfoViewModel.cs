@@ -3,9 +3,8 @@
     public class PersonBasicInfoViewModel
     {
         public string FullName { get; set; }
-        public string Ocupation { get; set; }
-        public string Company { get; set; }
-        public string PhoneNumber { get; set; }
+        public string About { get; set; }
         public bool IsFollowedByCurrentUser { get; set; }
+        public string UserId { get; set; }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using FacebookLikeInspinia.Models;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FacebookLikeInspinia.ViewModels
 {
@@ -16,11 +14,6 @@ namespace FacebookLikeInspinia.ViewModels
         [StringLength(50, ErrorMessage = "LastName is too long")]
         [Display(Name = "LastName")]
         public string LastName { get; set; }
-
-        [Required]
-        [DataType(DataType.Date)]
-        [Display(Name = "Birthday")]
-        public DateTime Birthday { get; set; }
 
         [Required]
         [EmailAddress]

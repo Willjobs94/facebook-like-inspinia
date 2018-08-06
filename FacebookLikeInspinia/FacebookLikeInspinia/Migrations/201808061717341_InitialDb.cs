@@ -34,7 +34,6 @@ namespace FacebookLikeInspinia.Migrations
                         FirstName = c.String(),
                         LastName = c.String(),
                         About = c.String(),
-                        BirthDate = c.DateTime(nullable: false),
                         CreatedAt = c.DateTime(nullable: false),
                         IsActive = c.Boolean(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
@@ -146,13 +145,13 @@ namespace FacebookLikeInspinia.Migrations
                 c => new
                     {
                         ApplicationUserId = c.String(nullable: false, maxLength: 128),
-                        FollowerId = c.String(nullable: false, maxLength: 128),
+                        FollowerUserId = c.String(nullable: false, maxLength: 128),
                     })
-                .PrimaryKey(t => new { t.ApplicationUserId, t.FollowerId })
+                .PrimaryKey(t => new { t.ApplicationUserId, t.FollowerUserId })
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUserId)
-                .ForeignKey("dbo.AspNetUsers", t => t.FollowerId)
+                .ForeignKey("dbo.AspNetUsers", t => t.FollowerUserId)
                 .Index(t => t.ApplicationUserId)
-                .Index(t => t.FollowerId);
+                .Index(t => t.FollowerUserId);
             
         }
         
@@ -167,10 +166,10 @@ namespace FacebookLikeInspinia.Migrations
             DropForeignKey("dbo.Comments", "CommentOwnerUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Followers", "FollowerId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Followers", "FollowerUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Followers", "ApplicationUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropIndex("dbo.Followers", new[] { "FollowerId" });
+            DropIndex("dbo.Followers", new[] { "FollowerUserId" });
             DropIndex("dbo.Followers", new[] { "ApplicationUserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Posts", new[] { "UserOwnerId" });
