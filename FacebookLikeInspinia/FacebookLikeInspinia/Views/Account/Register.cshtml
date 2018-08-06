@@ -19,13 +19,7 @@
 
 <div class="middle-box text-center loginscreen   animated fadeInDown">
     <div>
-        <div>
-
-            <h1 class="logo-name">IN+</h1>
-
-        </div>
-        <h3>Register to IN+</h3>
-        <p>Create account to see it in action.</p>
+        <h3>Register to Fakebook</h3>
 
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
@@ -68,7 +62,7 @@
             </div>
         }
 
-        <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
+        <p class="m-t"> <small>Fakebook App &copy; @DateTime.Now.Year</small> </p>
     </div>
 </div>
 @Scripts.Render("~/bundles/jquery")
