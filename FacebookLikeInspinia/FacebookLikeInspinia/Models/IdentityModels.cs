@@ -23,6 +23,7 @@ namespace FacebookLikeInspinia.Models
         public string About { get; set; }
         public ICollection<ApplicationUser> Followers { get; set; } = new List<ApplicationUser>();
         public ICollection<ApplicationUser> Following { get; set; } = new List<ApplicationUser>();
+        public byte[] ProfilePhoto { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public bool IsActive { get; set; } = true;

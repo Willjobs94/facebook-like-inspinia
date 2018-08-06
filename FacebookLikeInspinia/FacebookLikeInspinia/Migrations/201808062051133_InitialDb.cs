@@ -34,6 +34,7 @@ namespace FacebookLikeInspinia.Migrations
                         FirstName = c.String(),
                         LastName = c.String(),
                         About = c.String(),
+                        ProfilePhoto = c.Binary(),
                         CreatedAt = c.DateTime(nullable: false),
                         IsActive = c.Boolean(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),

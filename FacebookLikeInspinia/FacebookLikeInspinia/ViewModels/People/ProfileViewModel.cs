@@ -1,12 +1,11 @@
 ﻿namespace FacebookLikeInspinia.ViewModels.People
 {
-    public class PersonBasicInfoViewModel
+    public class ProfileViewModel
     {
         public string FullName { get; set; }
+        public string About { get; set; }
         public int PostCount { get; set; }
-        public int FollowingCount { get; set; }
         public int FollowerCount { get; set; }
-        public bool IsFollowedByCurrentUser { get; set; }
-        public string UserId { get; set; }
+        public int FollowingCount { get; set; }
     }
 }

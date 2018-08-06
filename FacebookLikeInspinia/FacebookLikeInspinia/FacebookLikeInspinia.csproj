@@ -208,16 +208,15 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HmtlHelperExtensions.cs" />
     <Compile Include="Hubs\NotificationHub.cs" />
     <Compile Include="Hubs\UserHubModels.cs" />
-    <Compile Include="Migrations\201808061717341_InitialDb.cs" />
-    <Compile Include="Migrations\201808061717341_InitialDb.Designer.cs">
-      <DependentUpon>201808061717341_InitialDb.cs</DependentUpon>
+    <Compile Include="Migrations\201808062051133_InitialDb.cs" />
+    <Compile Include="Migrations\201808062051133_InitialDb.Designer.cs">
+      <DependentUpon>201808062051133_InitialDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -237,6 +236,8 @@
     <Compile Include="ViewModels\Like\LikePostViewModel.cs" />
     <Compile Include="ViewModels\Like\SavedLikeViewModel.cs" />
     <Compile Include="ViewModels\People\PersonBasicInfoViewModel.cs" />
+    <Compile Include="ViewModels\People\ProfileViewModel.cs" />
+    <Compile Include="ViewModels\People\UploadProfilePhotoViewModel.cs" />
     <Compile Include="ViewModels\Post\CreatePostViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
@@ -1302,13 +1303,14 @@
     <Content Include="Views\Manage\_RemoveAccountPartial.cshtml" />
     <Content Include="Views\Manage\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Home\Minor.cshtml" />
-    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\People\Detail.cshtml" />
     <Content Include="Views\Home\_BasicUserInfo.cshtml" />
     <Content Include="Views\Home\_FollowersAndFriends.cshtml" />
     <Content Include="Views\Shared\_PostsPartial.cshtml" />
     <Content Include="Views\Shared\_CommentsPartial.cshtml" />
     <Content Include="Views\People\Index.cshtml" />
     <Content Include="Views\People\_PersonBasicInfoPartial.cshtml" />
+    <Content Include="Views\Shared\NotFoundError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1324,8 +1326,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808061717341_InitialDb.resx">
-      <DependentUpon>201808061717341_InitialDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808062051133_InitialDb.resx">
+      <DependentUpon>201808062051133_InitialDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
