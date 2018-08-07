@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -31,7 +32,8 @@ namespace FacebookLikeInspinia.Controllers
                     PostCount = _dbContext.Posts.Count(p => p.UserOwnerId == x.Id),
                     IsFollowedByCurrentUser = x.Followers.Any(f => f.Id == currentUserId),
                     FullName = $"{x.FirstName} {x.LastName}",
-                    UserId = x.Id
+                    UserId = x.Id,
+                    Base64ProfileImage = $"data:image/png;base64,{Convert.ToBase64String(x.ProfilePhoto)}"
                 });
 
             return View(viewModel);
@@ -50,7 +52,9 @@ namespace FacebookLikeInspinia.Controllers
                 About = user.About,
                 FullName = $"{user.FirstName} {user.LastName}",
                 FollowerCount = user.Followers.Count,
-                FollowingCount = user.Following.Count
+                FollowingCount = user.Following.Count,
+                Base64ProfileImage =  $"data:image/png;base64,{Convert.ToBase64String(user.ProfilePhoto)}"
+
             };
             return View(profileViewModel);
         }

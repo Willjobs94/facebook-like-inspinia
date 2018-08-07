@@ -39,9 +39,9 @@
         text-align: center;
     }
 
-    .profile-cover:hover .bottom-cover {
+    /*.profile-cover:hover .bottom-cover {
         opacity: 1;
-    }
+    }*/
 
     .overley-container:hover .middle {
         opacity: 1;
@@ -63,7 +63,7 @@
         <div class="col-md-11">
             <div class="ibox">
                 <div class="ibox-content no-padding border-left-right profile-cover" style="margin-top: -10%;z-index:-10" @*style="margin-top: -5%"*@>
-                    <img alt="image" class="img-fluid w-100" src="~/img/cover-photo.jpg" />
+                    <img alt="image" class="img-fluid w-100" src="/img/cover-photo.jpg" />
                     <div class="bottom-cover">
                         <button class="btn btn-default" type="button"><i class="fa fa-picture-o"></i> <span>Change cover background</span></button>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="ibox-content" style="padding: 0; margin-top: -10%; z-index: 10">
 
                     <div class="overley-container">
-                        <img alt="image" class="img-fluid image" src="/img/a1.jpg" style="margin-left: 10%;">
+                        <img alt="image" class="img-fluid image" src="@Model.Base64ProfileImage" style="margin-left: 10%;">
                         <div class="bottom">
                             <button class="btn btn-default btn-xs " data-toggle="modal" data-target="#myModal2" type="button"><i class="fa fa-camera"></i> <span class="small">Upload photo</span></button>
                         </div>
@@ -125,7 +125,7 @@
                         <div class="feed-activity-list">
                             <div class="feed-element">
                                 <a href="#" class="float-left">
-                                    <img alt="image" class="rounded-circle" src="img/a1.jpg">
+                                    <img alt="image" class="rounded-circle" src="/img/a1.jpg">
                                 </a>
                                 <div class="media-body ">
                                     <small class="float-right text-navy">1m ago</small>
@@ -140,7 +140,7 @@
 
                             <div class="feed-element">
                                 <a href="#" class="float-left">
-                                    <img alt="image" class="rounded-circle" src="img/profile.jpg">
+                                    <img alt="image" class="rounded-circle" src="/img/profile.jpg">
                                 </a>
                                 <div class="media-body ">
                                     <small class="float-right">5m ago</small>
@@ -152,7 +152,7 @@
 
                             <div class="feed-element">
                                 <a href="#" class="float-left">
-                                    <img alt="image" class="rounded-circle" src="img/a2.jpg">
+                                    <img alt="image" class="rounded-circle" src="/img/a2.jpg">
                                 </a>
                                 <div class="media-body ">
                                     <small class="float-right">2h ago</small>
@@ -171,21 +171,21 @@
                             </div>
                             <div class="feed-element">
                                 <a href="#" class="float-left">
-                                    <img alt="image" class="rounded-circle" src="img/a3.jpg">
+                                    <img alt="image" class="rounded-circle" src="/img/a3.jpg">
                                 </a>
                                 <div class="media-body ">
                                     <small class="float-right">2h ago</small>
                                     <strong>Janet Rosowski</strong> add 1 photo on <strong>Monica Smith</strong>. <br>
                                     <small class="text-muted">2 days ago at 8:30am</small>
                                     <div class="photos">
-                                        <a target="_blank" href="http://24.media.tumblr.com/20a9c501846f50c1271210639987000f/tumblr_n4vje69pJm1st5lhmo1_1280.jpg"> <img alt="image" class="feed-photo" src="img/p1.jpg"></a>
-                                        <a target="_blank" href="http://37.media.tumblr.com/9afe602b3e624aff6681b0b51f5a062b/tumblr_n4ef69szs71st5lhmo1_1280.jpg"> <img alt="image" class="feed-photo" src="img/p3.jpg"></a>
+                                        <a target="_blank" href="http://24.media.tumblr.com/20a9c501846f50c1271210639987000f/tumblr_n4vje69pJm1st5lhmo1_1280.jpg"> <img alt="image" class="feed-photo" src="/img/p1.jpg"></a>
+                                        <a target="_blank" href="http://37.media.tumblr.com/9afe602b3e624aff6681b0b51f5a062b/tumblr_n4ef69szs71st5lhmo1_1280.jpg"> <img alt="image" class="feed-photo" src="/img/p3.jpg"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="feed-element">
                                 <a href="#" class="float-left">
-                                    <img alt="image" class="rounded-circle" src="img/a4.jpg">
+                                    <img alt="image" class="rounded-circle" src="/img/a4.jpg">
                                 </a>
                                 <div class="media-body ">
                                     <small class="float-right text-navy">5h ago</small>
@@ -199,7 +199,7 @@
                             </div>
                             <div class="feed-element">
                                 <a href="#" class="float-left">
-                                    <img alt="image" class="rounded-circle" src="img/a5.jpg">
+                                    <img alt="image" class="rounded-circle" src="/img/a5.jpg">
                                 </a>
                                 <div class="media-body ">
                                     <small class="float-right">2h ago</small>
@@ -216,7 +216,7 @@
                             </div>
                             <div class="feed-element">
                                 <a href="#" class="float-left">
-                                    <img alt="image" class="rounded-circle" src="img/profile.jpg">
+                                    <img alt="image" class="rounded-circle" src="/img/profile.jpg">
                                 </a>
                                 <div class="media-body ">
                                     <small class="float-right">23h ago</small>
@@ -226,7 +226,7 @@
                             </div>
                             <div class="feed-element">
                                 <a href="#" class="float-left">
-                                    <img alt="image" class="rounded-circle" src="img/a7.jpg">
+                                    <img alt="image" class="rounded-circle" src="/img/a7.jpg">
                                 </a>
                                 <div class="media-body ">
                                     <small class="float-right">46h ago</small>
@@ -246,24 +246,26 @@
         </div>
         <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
-                <form method="post" action="@Url.Action("UploadProfilePhoto", "People")" enctype="multipart/form-data"></form>
-                @Html.Hidden("UserId", User.Identity.GetUserId())
-                <div class="modal-content animated flipInY">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title">Upload profile picture</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="custom-file">
-                            <input id="logo" type="file" class="custom-file-input" name="ProfilePhoto">
-                            <label for="logo" class="custom-file-label">Choose file...</label>
+                <form method="post" action="@Url.Action("UploadProfilePhoto", "People")" enctype="multipart/form-data">
+                    @Html.Hidden("UserId", User.Identity.GetUserId())
+                    <div class="modal-content animated flipInY">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title">Upload profile picture</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="custom-file">
+                                <input id="logo" type="file" class="custom-file-input" name="ProfilePhoto">
+                                <label for="logo" class="custom-file-label">Choose file...</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" >Save changes</button>
-                    </div>
-                </div>
+
+                </form>
             </div>
         </div>
 
@@ -281,10 +283,10 @@
     <script>
         $(function () {
 
-            $('.custom-file-input').on('change', function() {
+            $('.custom-file-input').on('change', function () {
                 let fileName = $(this).val().split('\\').pop();
                 $(this).next('.custom-file-label').addClass("selected").html(fileName);
-            }); 
+            });
 
             $("#upload-profile-picture").on('click',
                 function () {

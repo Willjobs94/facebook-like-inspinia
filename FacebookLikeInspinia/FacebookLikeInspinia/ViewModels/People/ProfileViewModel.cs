@@ -7,5 +7,6 @@
         public int PostCount { get; set; }
         public int FollowerCount { get; set; }
         public int FollowingCount { get; set; }
+        public string Base64ProfileImage { get; set; }
     }
 }

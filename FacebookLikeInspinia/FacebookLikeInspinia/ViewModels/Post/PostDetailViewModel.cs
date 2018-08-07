@@ -14,5 +14,7 @@ namespace FacebookLikeInspinia.ViewModels.Post
         public IEnumerable<CommentItemViewModel> Comments { get; set; }
         public string JsonParsedCreatedAt { get; set; }
         public int LikesCount { get; set; }
+        public string Base64ProfileImage { get; set; }
+        public string UserId { get; set; }
     }
 }

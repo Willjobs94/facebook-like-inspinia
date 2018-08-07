@@ -27,20 +27,17 @@ namespace FacebookLikeInspinia.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            var directory = System.Environment.CurrentDirectory;
-            var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var rootDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
+            var imageFolder = Path.GetFullPath(Path.Combine(rootDirectory, @"..\img"));
 
-            Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
-            String Root = Directory.GetCurrentDirectory();
-
-            throw new Exception(Root);
+            //throw new Exception(imageFolder);
             var passwordHash = new PasswordHasher();
             var hashedPassword = passwordHash.HashPassword("MyPassword23@#");
             var initUsers = new List<ApplicationUser>
             {
                 new ApplicationUser
                 {
-                    ProfilePhoto = File.ReadAllBytes("/img/a1.jpg"),
+                    ProfilePhoto = File.ReadAllBytes(Path.Combine(imageFolder, "a1.jpg")),
                     FirstName = "Mark",
                     LastName = "Levy",
                     Email = "marklevy@email.com",
@@ -51,7 +48,7 @@ namespace FacebookLikeInspinia.Migrations
                     About  = "Mark Levy is the founder of Levy Innovation, a marketing strategy firm. David Meerman Scott has called him “a positioning guru extraordinaire,” and Debbie Weil referred to him as “a horse whisperer for writers and business thinkers."},
                 new ApplicationUser
                 {
-                    //ProfilePhoto = File.ReadAllBytes(Path.Combine(Path.) "/img/a3.jpg"),
+                    ProfilePhoto = File.ReadAllBytes(Path.Combine(imageFolder, "a3.jpg")),
                     FirstName = "Ann",
                     LastName = "Handley ",
                     Email = "ann.handley@email.com",
@@ -62,7 +59,7 @@ namespace FacebookLikeInspinia.Migrations
                     About = "Ann Handley is a veteran of creating and managing digital content to build relationships for organizations and individuals. Ann is the author of the Wall Street Journal bestseller  Everybody Writes: Your Go-To Guide to Creating Ridiculously Good Content (September 2014, Wiley)."                   },
                 new ApplicationUser
                 {
-                    ProfilePhoto = File.ReadAllBytes("/img/a4.jpg"),
+                    ProfilePhoto = File.ReadAllBytes(Path.Combine(imageFolder, "a4.jpg")),
                     FirstName = "William",
                     LastName = "Bello ",
                     Email = "william.bello@email.com",
@@ -74,7 +71,7 @@ namespace FacebookLikeInspinia.Migrations
                 },
                 new ApplicationUser
                 {
-                    ProfilePhoto = File.ReadAllBytes("/img/a7.jpg"),
+                    ProfilePhoto = File.ReadAllBytes(Path.Combine(imageFolder, "a7.jpg")),
                     FirstName = "Jose ",
                     LastName = "Armando",
                     Email = "jose.armando@emtail.com",

@@ -49,11 +49,13 @@ namespace FacebookLikeInspinia.Hubs
 
             var postDetail = new PostDetailViewModel
             {
+                UserId = user.Id,
                 PostId = post.Id,
                 Content = post.BodyContent,
                 CreatedAt = post.CreatedAt,
                 UserFullName = user.FirstName + " " + user.LastName,
-                JsonParsedCreatedAt = post.CreatedAt.ToString("hh:mm tt - MM.dd.yyyy")
+                JsonParsedCreatedAt = post.CreatedAt.ToString("hh:mm tt - MM.dd.yyyy"),
+                Base64ProfileImage = $"data:image/png;base64,{ Convert.ToBase64String(user.ProfilePhoto)}"
         };
             Clients.All.showSavedPost(postDetail);
         }
@@ -81,7 +83,9 @@ namespace FacebookLikeInspinia.Hubs
                 CreatedAt = comment.CreatedAt,
                 PostId = comment.PostId,
                 IsLikedByCurrentUser = false, 
-                CommentId = comment.Id
+                CommentId = comment.Id,
+                UserId = user.Id,
+                Base64ProfileImage = $"data:image/png;base64,{ Convert.ToBase64String(user.ProfilePhoto)}"
             };
 
             Clients.All.showSavedComment(commentDetail);
@@ -157,14 +161,6 @@ namespace FacebookLikeInspinia.Hubs
             wantToFollowUser.Following.Add(willBeFollowedUser);
             _dbContext.Entry(willBeFollowedUser).State = EntityState.Modified;
             _dbContext.Entry(wantToFollowUser).State = EntityState.Modified;
-            
-            //var followerEntity = new Follower()
-            //{
-            //    ApplicationUserId = followPersonViewModel.CurrentUserId,
-            //    FollowerUserId = followPersonViewModel.FollowUserId
-            //};
-
-            //willBeFollowedUser.Followers.Add(wantToFollowUser);
             _dbContext.SaveChanges();
         }
 

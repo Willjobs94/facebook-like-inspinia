@@ -9,11 +9,11 @@
         {
             <div class="social-feed-box" data-post-id="@post.PostId">
                 <div class="social-avatar">
-                    <a href="" class="pull-left">
-                        <img alt="image" src="~/img/a1.jpg">
+                    <a href="/People/Detail?userId=@post.UserId" class="pull-left">
+                        <img alt="image" src="@post.Base64ProfileImage">
                     </a>
                     <div class="media-body">
-                        <a href="#">
+                        <a href="/People/Detail?userId=@post.UserId">
                             @post.UserFullName
                         </a>
                         <small class="text-muted">@post.CreatedAt.ToString("hh:mm tt - dd.MM.yyyy")</small>

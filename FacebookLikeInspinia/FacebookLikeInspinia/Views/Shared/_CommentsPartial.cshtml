@@ -7,11 +7,11 @@
         @foreach (var comment in Model)
         {
             <div class="social-comment"  data-comment-id="@comment.CommentId" data-comment-item-post-id="@comment.PostId">
-                <a href="" class="pull-left">
-                    <img alt="image" src="~/img/a1.jpg">
+                <a href="/People/Detail?userId=@comment.UserId" class="pull-left">
+                    <img alt="image" src="@comment.Base64ProfileImage">
                 </a>
                 <div class="media-body">
-                    <a href="#">
+                    <a href="/People/Detail?userId=@comment.UserId">
                         @comment.CommentedByFullName
                     </a>
                     @comment.Content

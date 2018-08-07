@@ -5,7 +5,6 @@
 <div class="wrapper wrapper-content">
     <div class="row justify-content-md-center animated fadeInRight">
         <div class="col-md-3">
-            @*@Html.Partial("_BasicUserInfo")*@
             @Html.Partial("_FollowersAndFriends")
         </div>
         <div class="col-lg-9">
@@ -36,16 +35,18 @@
                 console.log("Connected users: " + usersCount);
             }
 
+            var base64ProfilePhoto = '@Model.Base64ProfilePhoto';
+
             function getParsedPostTemplate(postJsonModel) {
 
                 var postTemplate = `
                                       <div class="social-feed-box" data-post-id="${postJsonModel.PostId}">
                                         <div class="social-avatar">
-                                            <a href="" class="pull-left">
-                                                <img alt="image" src="/img/a4.jpg">
+                                            <a href="/People/Detail?userId=${postJsonModel.UserId}" class="pull-left">
+                                                <img alt="image" src="${postJsonModel.Base64ProfileImage}">
                                             </a>
                                             <div class="media-body">
-                                                <a href="#">
+                                                <a href="/People/Detail?userId=${postJsonModel.UserId}">
                                                     ${postJsonModel.UserFullName}
                                                 </a>
                                                 <small class="text-muted">${postJsonModel.JsonParsedCreatedAt}</small>
@@ -69,11 +70,11 @@
             function getParsedCommentTemplate(commentJsonModel) {
                 var commentItemTemplate = `
                                 <div class="social-comment" data-comment-id="${commentJsonModel.CommentId}">
-                                    <a href="" class="pull-left">
-                                        <img alt="image" src="/img/a2.jpg">
+                                    <a href="/People/Detail?userId=${commentJsonModel.UserId}" class="pull-left">
+                                        <img alt="image" src="${commentJsonModel.Base64ProfileImage}">
                                     </a>
                                     <div class="media-body">
-                                        <a href="#">
+                                        <a href="/People/Detail?userId=${commentJsonModel.UserId}">
                                             ${commentJsonModel.CommentedByFullName}
                                         </a>
                                         ${commentJsonModel.Content}
@@ -90,7 +91,7 @@
                 var commentBox = `
                             <div class="social-comment">
                                 <a href="" class="pull-left">
-                                    <img alt="image" src="/img/a3.jpg">
+                                    <img alt="image" src="${base64ProfilePhoto}">
                                 </a>
                                 <div class="media-body">
                                     <textarea data-textarea-post-id="${postId}" class="form-control input-comment-box-texarea"  placeholder="Write comment..."></textarea>

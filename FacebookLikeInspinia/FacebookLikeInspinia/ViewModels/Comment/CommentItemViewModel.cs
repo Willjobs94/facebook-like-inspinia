@@ -12,5 +12,7 @@ namespace FacebookLikeInspinia.ViewModels.Comment
         public bool IsLikedByCurrentUser { get; set; }
         public DateTime CreatedAt { get; set; }
         public string JsonParsedCreatedAt { get => CreatedAt.ToString("dd.MM.yyyy"); }
+        public string Base64ProfileImage { get; set; }
+        public string UserId { get; set; }
     }
 }
