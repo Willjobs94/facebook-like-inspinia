@@ -214,9 +214,9 @@
     <Compile Include="Helpers\HmtlHelperExtensions.cs" />
     <Compile Include="Hubs\NotificationHub.cs" />
     <Compile Include="Hubs\UserHubModels.cs" />
-    <Compile Include="Migrations\201808062051133_InitialDb.cs" />
-    <Compile Include="Migrations\201808062051133_InitialDb.Designer.cs">
-      <DependentUpon>201808062051133_InitialDb.cs</DependentUpon>
+    <Compile Include="Migrations\201808071150307_InitialDb.cs" />
+    <Compile Include="Migrations\201808071150307_InitialDb.Designer.cs">
+      <DependentUpon>201808071150307_InitialDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -1115,6 +1115,7 @@
     <Content Include="img\p6.jpg" />
     <Content Include="img\p7.jpg" />
     <Content Include="img\p8.jpg" />
+    <Content Include="img\person-placeholder.jpg" />
     <Content Include="img\profile.jpg" />
     <Content Include="img\profile_big.jpg" />
     <Content Include="img\profile_small.jpg" />
@@ -1326,8 +1327,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808062051133_InitialDb.resx">
-      <DependentUpon>201808062051133_InitialDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808071150307_InitialDb.resx">
+      <DependentUpon>201808071150307_InitialDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

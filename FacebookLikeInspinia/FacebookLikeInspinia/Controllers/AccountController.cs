@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FacebookLikeInspinia.Models;
 using FacebookLikeInspinia.ViewModels;
+using System.IO;
 
 namespace FacebookLikeInspinia.Controllers
 {
@@ -152,7 +153,9 @@ namespace FacebookLikeInspinia.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, LastName = model.LastName, FirstName = model.FirstName};
+                var imagePlaceholder = System.IO.File.ReadAllBytes(Server.MapPath(@"~/img/person-placeholder.jpg"));
+
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, LastName = model.LastName, FirstName = model.FirstName, ProfilePhoto = imagePlaceholder};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
